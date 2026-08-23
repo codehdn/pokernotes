@@ -1,6 +1,6 @@
 {
   "name": "poker-player-notes",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "license": "SEE LICENSE IN LICENSE",
   "main": "out/main/index.js",
@@ -38,9 +38,21 @@
   "build": {
     "appId": "com.hayden.pokernotes",
     "productName": "Poker Player Notes",
-    "asarUnpack": ["node_modules/better-sqlite3/**"],
-    "files": ["out/**"],
-    "extraResources": [{ "from": "resources/icon.png", "to": "icon.png" }],
-    "win": { "target": "nsis", "icon": "resources/icon.png" }
+    "asarUnpack": [
+      "node_modules/better-sqlite3/**"
+    ],
+    "files": [
+      "out/**"
+    ],
+    "extraResources": [
+      {
+        "from": "resources/icon.png",
+        "to": "icon.png"
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "resources/icon.png"
+    }
   }
 }
