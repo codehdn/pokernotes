@@ -52,6 +52,7 @@ app.whenReady().then(async () => {
   ipcMain.handle('primary-tag:update', (_, key, name, description, color) => { const value=tagSchema.parse({name,description,color});return store.updatePrimaryTag(primarySchema.unwrap().parse(key),value.name,value.description,value.color) })
   ipcMain.handle('primary-tag:delete', (_, key) => store.deletePrimaryTag(primarySchema.unwrap().parse(key)))
   ipcMain.handle('settings:get', readSettings)
+  ipcMain.handle('version:get', () => app.getVersion())
   ipcMain.handle('settings:set', (_, value) => { const next=settingsSchema.parse(value),previous=readSettings();try{registerShortcut(next.shortcut)}catch(error){registerShortcut(previous.shortcut);throw error}return writeSettings(next) })
   ipcMain.handle('backup', backup)
 })

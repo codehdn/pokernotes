@@ -8,6 +8,7 @@ let api: PokerNotesAPI
 afterEach(cleanup)
 beforeEach(() => {
   api = {
+    getVersion: vi.fn().mockResolvedValue('1.0.0'),
     getPlayers: vi.fn().mockResolvedValue({players:[],total:0}),
     searchPlayers: vi.fn(), getPlayer: vi.fn(), createPlayer: vi.fn(), updateNotes: vi.fn(), commitStats: vi.fn(), getStatHistory: vi.fn().mockResolvedValue([]), setPrimaryClassification: vi.fn(), toggleExploitTag: vi.fn(), getExploitTags: vi.fn().mockResolvedValue([]), createExploitTag: vi.fn(), updateExploitTag:vi.fn(),deleteExploitTag:vi.fn(),getPrimaryTags:vi.fn().mockResolvedValue([]),createPrimaryTag:vi.fn(),updatePrimaryTag:vi.fn(),deletePrimaryTag:vi.fn(), getSettings: vi.fn(), setSettings: vi.fn(), backupNow: vi.fn(), hide: vi.fn(), minimize: vi.fn(), quit: vi.fn(), onFocusSearch: vi.fn().mockReturnValue(()=>{}), onBeforeHide: vi.fn().mockReturnValue(()=>{}), onRequestQuit: vi.fn().mockReturnValue(()=>{})
   }
