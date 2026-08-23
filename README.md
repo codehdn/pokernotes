@@ -2,6 +2,10 @@
 
 A fast, local Windows app for recording notes and reads on poker opponents.
 
+All player data, notes, settings, and backups remain on your computer. The
+application does not connect to the internet, use cloud services, send
+telemetry, or communicate with poker clients.
+
 ## Features
 
 - Global keyboard shortcut for quick access
