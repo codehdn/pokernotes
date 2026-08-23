@@ -24,7 +24,7 @@ app.whenReady().then(async () => {
   window = new BrowserWindow({ width: 420, height: 550, minWidth: 340, minHeight: 400, alwaysOnTop: true, frame: false, icon: iconPath, show: false, backgroundColor: '#151619', webPreferences: { preload: join(__dirname, '../preload/index.js'), contextIsolation: true, nodeIntegration: false, sandbox: true } })
   window.on('close', e => { if (!quitting) { e.preventDefault(); requestQuit() } })
   Menu.setApplicationMenu(null)
-  if (process.env.ELECTRON_RENDERER_URL) window.loadURL(process.env.ELECTRON_RENDERER_URL); else window.loadFile(join(__dirname, '../renderer/index.html'))
+  if (process.env.ELECTRON_RENDERER_URL) window.loadURL(process.env.ELECTRON_RENDERER_URL); else window.loadFile(join(__dirname, '../renderer/index.html'),{query:{version:app.getVersion()}})
   window.once('ready-to-show', show)
   try { registerShortcut(readSettings().shortcut) } catch (error) { dialog.showErrorBox('Global shortcut unavailable',String(error)); registerShortcut(defaults.shortcut) }
   app.setLoginItemSettings({openAtLogin:readSettings().launchAtLogin})
