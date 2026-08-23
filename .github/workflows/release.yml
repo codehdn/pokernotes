@@ -1,0 +1,60 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: Version bump
+        required: true
+        default: patch
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm version ${{ inputs.bump }} --no-git-tag-version
+      - run: npm test
+      - run: npm run dist -- --publish never
+
+      - name: Commit and tag version
+        shell: pwsh
+        run: |
+          $version = node -p "require('./package.json').version"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json package-lock.json
+          git commit -m "Release v$version"
+          git tag "v$version"
+          git push origin HEAD:${{ github.ref_name }} "v$version"
+          "VERSION=$version" >> $env:GITHUB_ENV
+
+      - name: Create GitHub release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "v$env:VERSION" `
+            "dist/Poker Player Notes Setup $env:VERSION.exe" `
+            --title "Poker Player Notes v$env:VERSION" `
+            --generate-notes

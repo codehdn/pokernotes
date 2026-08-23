@@ -1,0 +1,11 @@
+node_modules/
+out/
+dist/
+*.log
+.env
+.env.*
+*.db
+*.db-shm
+*.db-wal
+settings.json
+PROJECT.md

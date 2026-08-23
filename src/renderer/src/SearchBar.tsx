@@ -1,0 +1,2 @@
+import type { RefObject } from 'react'
+export default function SearchBar({inputRef,query,setQuery,search}:{inputRef:RefObject<HTMLInputElement|null>,query:string,setQuery:(s:string)=>void,search:()=>void}){return <header><input ref={inputRef} aria-label="Search players" placeholder="search..." value={query} onChange={e=>setQuery(e.target.value)} onKeyDown={e=>{if(e.key==='Enter'){e.preventDefault();search()}}}/><button aria-label="Search" onClick={search}>→</button></header>}
