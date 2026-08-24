@@ -1,6 +1,6 @@
 .settings{overflow:auto}
 .settings-heading{align-items:baseline;justify-content:space-between}
-.settings-section{border:1px solid #34363d;border-radius:5px;background:#181a1f}
+.settings-section{flex-shrink:0;border:1px solid #34363d;border-radius:5px;background:#181a1f}
 .settings-section>summary{cursor:pointer;padding:9px;font-size:13px;font-weight:600;color:#d8dbe2}
 .settings-section>summary small{margin-left:5px;font-weight:400}
 .player-list{display:flex;flex-direction:column;max-height:230px;overflow:auto;padding:0 8px 8px}
