@@ -13,6 +13,12 @@ telemetry, or communicate with poker clients.
 - Local SQLite storage with automatic backups
 - No accounts, cloud services, telemetry, or poker-client integration
 
+## Preview
+
+| Search | Player notes | Settings |
+| --- | --- | --- |
+| ![Search players and view their stats and tags](docs/screenshots/player-search.png) | ![Record notes, stats, and tags for a player](docs/screenshots/player-notes.png) | ![Configure the shortcut, backups, players, and tags](docs/screenshots/settings.png) |
+
 ## Development
 
 ```powershell
