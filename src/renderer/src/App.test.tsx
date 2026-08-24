@@ -63,6 +63,7 @@ it('opens a player from the settings list', async () => {
   vi.mocked(api.getPlayer).mockResolvedValue(profile('Bob',2))
   render(<App />)
   fireEvent.click(screen.getByTitle('Settings'))
+  fireEvent.click(await screen.findByText('Manage Players (2)'))
   fireEvent.change(await screen.findByLabelText('Filter players'),{target:{value:'bob'}})
   fireEvent.click(screen.getByText('Bob'))
   expect(await screen.findByText('Bob')).toBeInTheDocument()

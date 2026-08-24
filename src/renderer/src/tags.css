@@ -1,14 +1,13 @@
 .settings{display:block;overflow:auto}
 .settings>*+*{margin-top:12px}
 .settings-heading{align-items:baseline;justify-content:space-between}
-.settings-section{border:1px solid #34363d;border-radius:5px;background:#181a1f}
-.settings-section>summary{cursor:pointer;padding:9px;font-size:13px;font-weight:600;color:#d8dbe2}
-.settings-section>summary small{margin-left:5px;font-weight:400}
-.player-list{display:flex;flex-direction:column;max-height:230px;overflow:auto;padding:0 8px 8px}
+.settings-nav{display:flex;flex-direction:column!important;gap:8px!important}
+.settings-nav button{text-align:left;padding:10px}
+.player-list{display:flex;flex-direction:column}
 .player-list input,.tag-fields input{min-width:0;padding:6px;background:#202228;border:1px solid #3b3e47}
 .player-list>button{text-align:left;border-width:0 0 1px;border-radius:0;padding:7px}
 .player-pages{align-items:center;justify-content:space-between;padding-top:7px}
-.tag-manager{display:flex;flex-direction:column;padding:0 8px 8px}
+.settings .tag-manager{display:block}
 .tag-row{display:grid!important;grid-template-columns:30px minmax(0,1fr) auto;align-items:start;gap:6px;padding:8px 0;border-top:1px solid #2d3037}
 .tag-row input[type=color]{width:30px;height:30px;padding:1px;border:0;background:transparent}
 .tag-fields,.tag-actions{display:flex!important;gap:4px}
